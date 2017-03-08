@@ -22,18 +22,15 @@ class LoginForm extends Component {
     }
 
     handleChangeEmail(event) {
-        console.log(event)
         this.setState({ email: event.target.value });
     }
 
     handleChangePassword(event) {
-        console.log(event)
         this.setState({ password: event.target.value });
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log('Hello');
         this.props.dispatch({ type: 'LOGIN_REQUEST', data: { email: this.state.email, password: this.state.password } });
         return false;
     }
