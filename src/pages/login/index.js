@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import LoginForm from './loginForm';
 
-
-
 class Login extends Component {
-
 
     constructor(props) {
         super(props);
-
         this.state = {};
-
     }
-
 
     componentWillMount() {
         // this.onPublishMessage(`${username} has left`)
@@ -34,10 +27,10 @@ class Login extends Component {
                 <div className="content">
                     <LoginForm></LoginForm>
                 </div>
-
             </div>
         );
     }
+
 }
 
 export default connect()(Login);
