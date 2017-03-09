@@ -13,11 +13,11 @@ import { login } from '../services/auth'
 export function* tryLogin(data) {
     console.log(`foo ${data}`)
     try {
-        const user = yield call(login, data);
-        console.log(user);
+        const result = yield call(login, data);
         yield put({
             type: 'LOGIN_SUCCESS',
-            data: {}
+            axiosConfig: result.axiosConfig,
+            data: result.data
         })
     } catch (error) {
         yield put({

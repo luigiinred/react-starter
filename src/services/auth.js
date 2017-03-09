@@ -1,16 +1,15 @@
 import { baseURL } from '../constants/';
+var axios = require('axios');
+
+
+
 
 export function login(data) {
-    console.log(data)
-    return fetch(`${baseURL}/api/v1/account`, {
-        method: 'GET', headers: {
-            'Authorization': 'Basic ' + btoa(`${data.data.email}:${data.data.password}`),
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-    }).then(function (response) {
-        if (response.status >= 400 && response.status < 600) {
-            throw new Error("Bad response from server");
-        }
-        return response.json();
-    });
+    const axiosConfig = { auth: { username: data.data.email, password: data.data.password } };
+    return axios.get(`${baseURL}/api/v1/account`, axiosConfig).then(
+        (data) => {
+            return {
+                axiosConfig: axiosConfig, data: data
+            }
+        });
 }

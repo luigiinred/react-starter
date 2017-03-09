@@ -8,7 +8,10 @@ class LoginForm extends Component {
 
     constructor(props) {
         super(props);
+        console.log(props)
         this.state = { email: '', password: '' };
+
+
     }
 
     componentWillMount() {
@@ -47,7 +50,5 @@ class LoginForm extends Component {
 }
 
 export default connect(
-    (state) => {
-        return {}
-    }
+
 )(LoginForm);

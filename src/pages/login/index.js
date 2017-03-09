@@ -7,10 +7,14 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {};
+        console.log(this.props)
+        console.log(this.context)
     }
 
     componentWillMount() {
-        // this.onPublishMessage(`${username} has left`)
+
+
+
     }
 
     componentWillUnmount() {
@@ -33,4 +37,8 @@ class Login extends Component {
 
 }
 
-export default connect()(Login);
+export default connect((state) => {
+    return {
+        user: state.user
+    }
+})(Login);
